@@ -6,8 +6,15 @@ while calc_loop:
         calc_loop = False
     elif user_input == '/help':
         print('The program calculates the sum of numbers')
+    elif user_input.startswith('/'):
+        print('Unknown command')
     elif user_input == '' or user_input == ' ':
         continue
     else:
-        print(sum([int(i) for i in user_input.split(' ')]))
+        try:
+            print(eval(user_input))
+        except NameError:
+            print('Invalid expression')
+        except SyntaxError:
+            print('Invalid expression')
 
